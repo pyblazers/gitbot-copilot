@@ -51,7 +51,8 @@ def main():
     
     # Webhook commands
     webhook_parser = subparsers.add_parser("webhook", help="Start webhook listener")
-    webhook_parser.add_argument("--port", type=int, help="Port to run on")
+    webhook_parser.add_argument("--port", type=int, default=5000, help="Port to run on (default: 5000)")
+    webhook_parser.add_argument("--host", help="Host to bind to (default: 127.0.0.1)")
     webhook_parser.add_argument("--debug", action="store_true", help="Run in debug mode")
     
     # User info command
@@ -161,6 +162,14 @@ def handle_webhook_command(bot, args):
     bot.webhook_listener.register_handler("push", handle_push_event)
     bot.webhook_listener.register_handler("pull_request", handle_pull_request_event)
     bot.webhook_listener.register_handler("issues", handle_issues_event)
+    
+    # Update host if provided
+    if args.host:
+        bot.webhook_listener.host = args.host
+    
+    # Update port if provided (it has a default, but can be overridden)
+    if args.port:
+        bot.webhook_listener.port = args.port
     
     # Start the listener
     bot.webhook_listener.start(debug=args.debug)

@@ -75,13 +75,18 @@ class RepositoryAnalytics:
         
         # Count commits by author
         authors = {}
+        commits_without_author = 0
         for commit in commits:
             if commit.author:
                 author = commit.author.login
                 authors[author] = authors.get(author, 0) + 1
+            else:
+                commits_without_author += 1
 
         return {
             "total_commits": len(commits),
+            "commits_with_author": len(commits) - commits_without_author,
+            "commits_without_author": commits_without_author,
             "since_days": since_days,
             "commits_by_author": authors,
             "most_active_author": max(authors.items(), key=lambda x: x[1])[0] if authors else None,

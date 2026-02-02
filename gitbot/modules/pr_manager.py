@@ -118,18 +118,26 @@ class PRManager:
 
         pr = self.repo.get_pull(pr_number)
         
-        # Validate PR is mergeable
-        if not pr.mergeable:
+        # Check if already merged
+        if pr.merged:
+            return {
+                "success": False,
+                "message": "Pull request is already merged",
+            }
+        
+        # Validate PR is mergeable (handle None case)
+        if pr.mergeable is False:
             return {
                 "success": False,
                 "message": "Pull request is not mergeable",
                 "mergeable_state": pr.mergeable_state,
             }
-
-        if pr.merged:
+        
+        if pr.mergeable is None:
             return {
                 "success": False,
-                "message": "Pull request is already merged",
+                "message": "Pull request mergeability is being computed. Try again in a moment.",
+                "mergeable_state": pr.mergeable_state,
             }
 
         # Merge the pull request

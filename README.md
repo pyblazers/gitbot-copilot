@@ -337,10 +337,12 @@ screen -r gitbot
 
 ## Dependencies
 
-- **PyGithub** (2.1.1) - GitHub API wrapper
-- **Flask** (3.0.0) - Web framework for webhooks
-- **python-dotenv** (1.0.0) - Environment variable management
-- **requests** (2.31.0) - HTTP library
+The project uses the following Python packages (see `requirements.txt` for specific versions):
+
+- **PyGithub** - GitHub API wrapper for Python
+- **Flask** - Lightweight web framework for webhooks
+- **python-dotenv** - Environment variable management
+- **requests** - HTTP library for API requests
 
 ## Security Considerations
 

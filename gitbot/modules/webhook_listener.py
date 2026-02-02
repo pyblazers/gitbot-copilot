@@ -14,18 +14,20 @@ class WebhookListener:
     Handles GitHub webhook events
     """
 
-    def __init__(self, secret=None, port=None):
+    def __init__(self, secret=None, port=None, host=None):
         """
         Initialize WebhookListener
 
         Args:
             secret (str): Webhook secret for validation
             port (int): Port to run the Flask server on
+            host (str): Host to bind to (default: 127.0.0.1 for security)
         """
         load_dotenv()
         
         self.secret = secret or os.getenv("WEBHOOK_SECRET")
         self.port = port or int(os.getenv("WEBHOOK_PORT", 5000))
+        self.host = host or os.getenv("WEBHOOK_HOST", "127.0.0.1")
         self.app = Flask(__name__)
         self.event_handlers = {}
         
@@ -133,9 +135,12 @@ class WebhookListener:
         Args:
             debug (bool): Run Flask in debug mode
         """
-        print(f"Starting GitBot Webhook Listener on port {self.port}")
-        print(f"Webhook endpoint: http://localhost:{self.port}/webhook")
-        self.app.run(host="0.0.0.0", port=self.port, debug=debug)
+        print(f"Starting GitBot Webhook Listener on {self.host}:{self.port}")
+        print(f"Webhook endpoint: http://{self.host}:{self.port}/webhook")
+        if self.host == "0.0.0.0":
+            print("WARNING: Server is exposed to all network interfaces.")
+            print("         For production use, run behind a reverse proxy with HTTPS.")
+        self.app.run(host=self.host, port=self.port, debug=debug)
 
 
 # Example event handlers
