@@ -1,0 +1,28 @@
+{
+  "openAIAPIKey": "your-api-key-here",
+  "enableOnDeviceTraining": true,
+  "modelCachePath": "~/Library/Caches/GitBot/Models",
+  "pythonEnvironmentPath": "/path/to/venv/bin/python",
+  "models": {
+    "issueClassifier": {
+      "path": "Models/issue_classifier.mlmodel",
+      "type": "coreml",
+      "version": "1.0"
+    },
+    "nlpProcessor": {
+      "path": "Models/nlp_processor.mlmodel",
+      "type": "coreml",
+      "version": "1.0"
+    }
+  },
+  "openAIConfig": {
+    "defaultModel": "gpt-3.5-turbo",
+    "maxTokens": 2048,
+    "temperature": 0.7
+  },
+  "pythonScripts": {
+    "trainModel": "Scripts/train_model.py",
+    "convertToCoreML": "Scripts/convert_to_coreml.py",
+    "preprocessData": "Scripts/preprocess_data.py"
+  }
+}
