@@ -1,0 +1,25 @@
+[flake8]
+max-line-length = 120
+extend-ignore = E203, W503, E501
+exclude = 
+    .git,
+    __pycache__,
+    venv,
+    build,
+    dist,
+    *.egg-info
+
+[isort]
+profile = black
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = True
+force_grid_wrap = 0
+use_parentheses = True
+
+[mypy]
+python_version = 3.8
+warn_return_any = True
+warn_unused_configs = True
+disallow_untyped_defs = False
+ignore_missing_imports = True
