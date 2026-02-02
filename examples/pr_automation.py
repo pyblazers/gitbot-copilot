@@ -1,5 +1,6 @@
 """Example: Automated PR merging with validation."""
 
+from typing import Tuple
 from gitbot.bot import GitBot
 from gitbot.config import Config
 
@@ -8,7 +9,7 @@ config = Config()
 bot = GitBot(config)
 
 
-def can_merge_pr(pr_number: int) -> tuple[bool, str]:
+def can_merge_pr(pr_number: int) -> Tuple[bool, str]:
     """
     Check if a PR can be safely merged.
     
