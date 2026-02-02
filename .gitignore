@@ -1,0 +1,79 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+*.xcworkspace/*
+!*.xcworkspace/xcshareddata/
+/*.gcno
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xccheckout
+*.xcscmblueprint
+.swiftpm/
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+*.swiftpm
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Core ML
+*.mlmodel
+*.mlmodelc
+*.mlpackage
+
+# API Keys and Secrets
+.env
+secrets.json
+config.json
+*_secret*
+*_private*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Model files and cache
+Models/*.mlmodel
+Models/*.pkl
+Models/*.h5
+Models/*.pt
+*.ckpt
+cache/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

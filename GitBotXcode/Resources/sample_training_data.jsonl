@@ -1,0 +1,13 @@
+# Example training data for GitBot
+# Format: One JSON object per line (JSONL)
+
+{"input": "Critical security vulnerability in authentication module", "output": "critical", "metadata": {"category": "security"}}
+{"input": "Update documentation for new API endpoints", "output": "low", "metadata": {"category": "documentation"}}
+{"input": "Bug: Application crashes on startup", "output": "high", "metadata": {"category": "bug"}}
+{"input": "Feature request: Add dark mode support", "output": "medium", "metadata": {"category": "feature"}}
+{"input": "Typo in README file", "output": "low", "metadata": {"category": "documentation"}}
+{"input": "Urgent: Database connection failing in production", "output": "critical", "metadata": {"category": "bug"}}
+{"input": "Enhancement: Improve loading speed", "output": "medium", "metadata": {"category": "performance"}}
+{"input": "Question: How to configure OAuth?", "output": "low", "metadata": {"category": "question"}}
+{"input": "Memory leak causing application to freeze", "output": "high", "metadata": {"category": "bug"}}
+{"input": "Add unit tests for user service", "output": "medium", "metadata": {"category": "testing"}}
