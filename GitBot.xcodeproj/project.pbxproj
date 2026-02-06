@@ -1,0 +1,6 @@
+// This is the main Xcode project file for GitBot
+// Proper configuration for a macOS SwiftUI app with Core ML support
+
+/* Begin PBXProject section */
+... // project configuration details here
+/* End PBXProject section */
