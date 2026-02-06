@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4159A603BA57492AAC1702B82E3F8AC7 /* GitBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860FA00DCFF49BD81B528C54518AAD6 /* GitBotApp.swift */; };
-		FF0C23B5103849
-
-76A546E73C8FD7D473 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE4CFD84604ED58DC7DD006E7D8669 /* ContentView.swift */; };
+		FF0C23B5103849A546E73C8FD7D473 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE4CFD84604ED58DC7DD006E7D8669 /* ContentView.swift */; };
 		F319D571FE164587B86E878AD25B2C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D5B0023AF14084933C77482E703EEE /* Assets.xcassets */; };
 		62D10FC5CF54473BB092247CE9475EED /* GitHubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00051D16D00D4C7292CD3B503938BAC4 /* GitHubModel.swift */; };
 		07AB12FF5B7F45F590E11DD654ACCB84 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BAAAB40CE476A8398865D2CAB5C3E /* DashboardView.swift */; };
@@ -62,7 +60,7 @@
 				8BEE4CFD84604ED58DC7DD006E7D8669 /* ContentView.swift */,
 				23128DF58E0943179406103AE27CEDA5 /* Models */,
 				8BC9D058E0A2425993734AE32FEE4246 /* Views */,
-				C7A90B492601 4EB39944D70432D47DB9 /* Services */,
+				C7A90B4926014EB39944D70432D47DB9 /* Services */,
 				5CC178061AFF4BB49C20BE520761F8A9 /* Resources */,
 				12CBC738578F46B08CD544BB935BF080 /* AIScripts */,
 				8B4A35BA6BAA43F287DB3E6DC006F1D8 /* GitBot.entitlements */,
@@ -190,7 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF0C23B5103849 76A546E73C8FD7D473 /* ContentView.swift in Sources */,
+				FF0C23B5103849A546E73C8FD7D473 /* ContentView.swift in Sources */,
 				4159A603BA57492AAC1702B82E3F8AC7 /* GitBotApp.swift in Sources */,
 				62D10FC5CF54473BB092247CE9475EED /* GitHubModel.swift in Sources */,
 				07AB12FF5B7F45F590E11DD654ACCB84 /* DashboardView.swift in Sources */,
@@ -350,7 +348,7 @@
 			};
 			name = Debug;
 		};
-		E1F27DFFC604 4ADDA5A274F65D72C491 /* Release */ = {
+		E1F27DFFC6044ADDA5A274F65D72C491 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
