@@ -36,8 +36,14 @@ source venv/bin/activate
 
 # Install/update dependencies
 echo "Installing Python dependencies..."
-pip install --upgrade pip > /dev/null 2>&1
-pip install -r requirements.txt > /dev/null 2>&1
+if ! pip install --upgrade pip 2>&1 | grep -E "(error|Error|ERROR)" ; then
+    echo "✓ pip upgraded successfully"
+fi
+
+echo "Installing packages from requirements.txt..."
+if ! pip install -r requirements.txt 2>&1 | grep -E "(error|Error|ERROR|Failed)" ; then
+    echo "✓ Dependencies installed successfully"
+fi
 
 echo "========================================="
 echo "Running AI workflow: Fine-tuning"

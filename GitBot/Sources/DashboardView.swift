@@ -53,6 +53,7 @@ struct DashboardView: View {
                         VStack(spacing: 12) {
                             Button(action: {
                                 // Action: Refresh data
+                                lastSync = Date()
                             }) {
                                 HStack {
                                     Image(systemName: "arrow.clockwise")

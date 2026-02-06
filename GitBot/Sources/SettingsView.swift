@@ -53,7 +53,10 @@ struct SettingsView: View {
                     }
                     
                     Button("View Documentation") {
-                        // Open documentation
+                        // Open README documentation
+                        if let url = URL(string: "https://github.com/pyblazers/gitbot-copilot/blob/main/README.md") {
+                            NSWorkspace.shared.open(url)
+                        }
                     }
                 }
             }
@@ -62,13 +65,22 @@ struct SettingsView: View {
     }
     
     func detectPythonPath() {
-        // Simulate detecting Python installation
+        // Detect actual Python installation
         let paths = [
             "/usr/bin/python3",
             "/usr/local/bin/python3",
             "/opt/homebrew/bin/python3"
         ]
-        pythonPath = paths.first ?? "/usr/bin/python3"
+        
+        for path in paths {
+            if FileManager.default.fileExists(atPath: path) {
+                pythonPath = path
+                return
+            }
+        }
+        
+        // Default fallback if none found
+        pythonPath = "/usr/bin/python3"
     }
 }
 
