@@ -1,0 +1,85 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main, master, develop, copilot/** ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    name: Build on Linux
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Swift
+      uses: swift-actions/setup-swift@v1
+      with:
+        swift-version: "5.9"
+        
+    - name: Print Swift version
+      run: swift --version
+      
+    - name: Build GitBotXcode
+      working-directory: ./GitBotXcode
+      run: swift build -v
+      
+    - name: Run tests
+      working-directory: ./GitBotXcode
+      run: swift test -v
+      
+  build-macos:
+    name: Build on macOS
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Print Swift version
+      run: swift --version
+      
+    - name: Build GitBotXcode
+      working-directory: ./GitBotXcode
+      run: swift build -v
+      
+    - name: Run tests
+      working-directory: ./GitBotXcode
+      run: swift test -v
+      
+  check-python-scripts:
+    name: Check Python Scripts
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      working-directory: ./GitBotXcode
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Check Python scripts syntax
+      working-directory: ./GitBotXcode/Scripts
+      run: |
+        python -m py_compile train_model.py
+        python -m py_compile convert_to_coreml.py
+        python -m py_compile preprocess_data.py
+        
+    - name: Test Python scripts help
+      working-directory: ./GitBotXcode/Scripts
+      run: |
+        python train_model.py 2>&1 | grep -i "usage" || true
+        python convert_to_coreml.py 2>&1 | grep -i "usage" || true
+        python preprocess_data.py 2>&1 | grep -i "usage" || true

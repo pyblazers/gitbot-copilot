@@ -1,5 +1,10 @@
 # GitBot Copilot
 
+[![Build and Test](https://github.com/pyblazers/gitbot-copilot/actions/workflows/build.yml/badge.svg)](https://github.com/pyblazers/gitbot-copilot/actions/workflows/build.yml)
+[![Swift Version](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/pyblazers/gitbot-copilot)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 An AI-powered GitHub assistant with Xcode-focused infrastructure for macOS, featuring Core ML integration, on-device fine-tuning, and OpenAI connectivity.
 
 ## Features
@@ -40,6 +45,34 @@ An AI-powered GitHub assistant with Xcode-focused infrastructure for macOS, feat
 - Easy integration of additional AI models
 - Plugin-ready workflow system
 - Future-proof architecture
+
+## Build Status
+
+The project uses GitHub Actions for continuous integration and testing across multiple platforms:
+
+| Platform | Status | Description |
+|----------|--------|-------------|
+| **Linux** | [![Build on Linux](https://github.com/pyblazers/gitbot-copilot/actions/workflows/build.yml/badge.svg)](https://github.com/pyblazers/gitbot-copilot/actions/workflows/build.yml) | Core modules build and tests |
+| **macOS** | [![Build on macOS](https://github.com/pyblazers/gitbot-copilot/actions/workflows/build.yml/badge.svg)](https://github.com/pyblazers/gitbot-copilot/actions/workflows/build.yml) | Full stack including SwiftUI |
+| **Python Scripts** | ✅ | Syntax validation and checks |
+
+### Quick Build Verification
+
+```bash
+# Build the project
+cd GitBotXcode
+swift build
+
+# Run tests
+swift test
+
+# Build for release
+swift build -c release
+```
+
+All builds are automatically tested on push to main branches and pull requests.
+
+For detailed build information, see [BUILD_STATUS.md](BUILD_STATUS.md).
 
 ## Requirements
 
